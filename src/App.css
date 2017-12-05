@@ -1,0 +1,8 @@
+.App {
+  max-width: 1280px;
+  margin: auto;
+  padding: 0 10px;
+}
+.App > header > .Header__logo , .App > header > .Navigation{
+  margin: 0;
+}
