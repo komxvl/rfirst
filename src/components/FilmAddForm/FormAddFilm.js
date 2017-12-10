@@ -4,13 +4,14 @@ import './FormAddFilm.css';
 class FormAddFilm extends Component {
     pointRatingFilm = [1,2,3,4,5,6,7,8,9,10];
     constructor(props) {
-
         super(props);
         this.state = {
             titleFilm:'',
             descFilm:'Please write an essay about your favorite DOM element.',
             ratingFilm:""
         };
+
+        this.onChangeValue = this.onChangeValue.bind(this);
     }
 
     handleChange(event){
@@ -20,7 +21,7 @@ class FormAddFilm extends Component {
         console.log("State Form",this.state);
     }
 
-    submitFilm(e){
+    onChangeValue(e){
         e.preventDefault();
         console.log("Raiting Film",this.state.ratingFilm);
         const filmProps = {
@@ -36,13 +37,13 @@ class FormAddFilm extends Component {
             descFilm:'Please write an essay about your favorite DOM element.',
             ratingFilm:""
         };
-
+        
         console.log("Film Info properties:",this.state);
     }
 
     render() {
         return (
-            <form className="MovieForm" onSubmit={(e) => this.submitFilm(e)}>
+            <form className="MovieForm" onSubmit={(e) => this.props.onChangeValue(e)}>
                 <label className="MovieForm__label">Title
                     <input type="text" name="titleFilm"  value={this.state.titleFilm} onChange={(e) => this.handleChange(e)} className="MovieForm__input"/>
                 </label>
