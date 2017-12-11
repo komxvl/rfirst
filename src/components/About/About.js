@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import './FormAddFilm.css';
 
 class About extends Component {
     render() {
@@ -10,3 +9,4 @@ class About extends Component {
 }
 
 export default About;
+ 

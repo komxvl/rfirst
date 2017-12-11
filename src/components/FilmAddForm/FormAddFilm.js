@@ -23,7 +23,6 @@ class FormAddFilm extends Component {
 
     onChangeValue(e){
         e.preventDefault();
-        console.log("Raiting Film",this.state.ratingFilm);
         const filmProps = {
             title:this.state.titleFilm,
             descFilm: this.state.descFilm,

@@ -1,18 +1,17 @@
 import React, { Component } from 'react';
-import FilmCard from './components/FilmCard/FilmCard';
-import FormAddFilm from './FormAddFilm';
-
+import FormAddFilm from '../../components/FilmAddForm/FormAddFilm';
+import FilmCard from '../../components/FilmCard/FilmCard';
 import './MovieList.css';
 
 class FilmList extends Component {
   constructor(props){
     super(props);
     this.state = {
-      listFilmsData:null,
-      filmName:null,
-      filmDescription:null,
-      filmYear:null,
-      childDataInfo:null
+      listFilmsData: null,
+      filmName: null,
+      filmDescription: null,
+      filmYear: null,
+      childDataInfo: null
     };
       
     console.log(props);
@@ -59,10 +58,9 @@ class FilmList extends Component {
       this.listFilms();
   }
 
-
   render() {
     return (
-      <div style={{display:'flex',justifyContent:"space-between",alignItems: "flex-start"}}>
+      <div style={{display:'flex', justifyContent:"space-between", alignItems: "flex-start"}}>
         {
           this.state.listFilmsData === null ? "Loading..." :
               <div className="MovieList">
@@ -73,7 +71,7 @@ class FilmList extends Component {
               </div>
         }
 
-        <FormAddFilm onChangeValue={this.submitFilm} />
+           <FormAddFilm onChangeValue={this.submitFilm} />
       </div>
     );
   }
