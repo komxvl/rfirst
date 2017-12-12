@@ -17,8 +17,10 @@ class FilmList extends Component {
     console.log(props);
   }
     
-    submitFilm =  (e) => {
+    submitFilm = (e) => {
         e.preventDefault();
+        console.log("sads");
+        console.log("parent event",e);
 
         let titleFilm = e.target["titleFilm"].value;
         let descFilm = e.target["titleFilm"].value;
@@ -30,8 +32,9 @@ class FilmList extends Component {
 
        this.setState({
             childDataInfo:e.target["titleFilm"].value
+        },() => {
+            console.log(this.state)
         });
-        console.log("STATE",this.state);
         console.log("PROPS",this.props);
     };
     
@@ -46,7 +49,6 @@ class FilmList extends Component {
           ).then(data => {
         this.setState({
           listFilmsData:data
-          //filmName:this.state.listFilmsData.results.title
         });
         console.log("DATA", data);
       }).catch(error => {
@@ -57,7 +59,6 @@ class FilmList extends Component {
   componentWillMount(){
       this.listFilms();
   }
-
   render() {
     return (
       <div style={{display:'flex', justifyContent:"space-between", alignItems: "flex-start"}}>
@@ -70,7 +71,6 @@ class FilmList extends Component {
                 }
               </div>
         }
-
            <FormAddFilm onChangeValue={this.submitFilm} />
       </div>
     );

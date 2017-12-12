@@ -6,12 +6,12 @@ class FormAddFilm extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            titleFilm:'',
-            descFilm:'Please write an essay about your favorite DOM element.',
-            ratingFilm:""
+            titleFilm: "",
+            descFilm: "Please write an essay about your favorite DOM element.",
+            ratingFilm: ""
         };
 
-        this.onChangeValue = this.onChangeValue.bind(this);
+        console.log("Form props",this.props);
     }
 
     handleChange(event){
@@ -22,22 +22,23 @@ class FormAddFilm extends Component {
     }
 
     onChangeValue(e){
+        alert("test");
         e.preventDefault();
+        console.log("child props",this.props);
+        console.log("Event",e);
         const filmProps = {
-            title:this.state.titleFilm,
+            title: this.state.titleFilm,
             descFilm: this.state.descFilm,
-            ratingFilm:this.state.ratingFilm
+            ratingFilm: this.state.ratingFilm
         };
 
         console.log("filmProps",filmProps);
 
-        this.state = {
-            titleFilm:'',
-            descFilm:'Please write an essay about your favorite DOM element.',
-            ratingFilm:""
-        };
-        
-        console.log("Film Info properties:",this.state);
+        this.setState({
+            titleFilm: "",
+            descFilm: "Please write an essay about your favorite DOM element.",
+            ratingFilm: ""
+        });
     }
 
     render() {
